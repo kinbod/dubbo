@@ -137,7 +137,7 @@ final class HeaderExchangeChannel implements ExchangeChannel {
         closed = true;
         if (timeout > 0) {
             long start = System.currentTimeMillis();
-            while (DefaultFuture.hasFuture(HeaderExchangeChannel.this)
+            while (DefaultFuture.hasFuture(channel)
                     && System.currentTimeMillis() - start < timeout) {
                 try {
                     Thread.sleep(10);
@@ -147,6 +147,11 @@ final class HeaderExchangeChannel implements ExchangeChannel {
             }
         }
         close();
+    }
+
+    @Override
+    public void startClose() {
+        channel.startClose();
     }
 
     public InetSocketAddress getLocalAddress() {
