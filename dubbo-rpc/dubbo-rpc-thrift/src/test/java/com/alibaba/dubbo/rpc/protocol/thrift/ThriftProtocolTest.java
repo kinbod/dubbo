@@ -17,17 +17,16 @@
 package com.alibaba.dubbo.rpc.protocol.thrift;
 
 import com.alibaba.dubbo.common.URL;
+import com.alibaba.dubbo.common.utils.NetUtils;
 import com.alibaba.dubbo.rpc.Invoker;
 import com.alibaba.dubbo.rpc.gen.dubbo.Demo;
 
 import org.junit.After;
 import org.junit.Before;
 
-/**
- */
 public class ThriftProtocolTest extends AbstractTest {
 
-    public static final int DEFAULT_PORT = 30660;
+    public final int DEFAULT_PORT = NetUtils.getAvailablePort();
 
     private ThriftProtocol protocol;
 

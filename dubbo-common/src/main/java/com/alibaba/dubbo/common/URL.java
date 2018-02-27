@@ -78,8 +78,10 @@ public final class URL implements Serializable {
 
     private final String password;
 
+    // by default, host to registry
     private final String host;
 
+    // by default, port to registry
     private final int port;
 
     private final String path;
@@ -1021,7 +1023,7 @@ public final class URL implements Serializable {
     }
 
     public URL removeParameters(Collection<String> keys) {
-        if (keys == null || keys.size() == 0) {
+        if (keys == null || keys.isEmpty()) {
             return this;
         }
         return removeParameters(keys.toArray(new String[0]));
